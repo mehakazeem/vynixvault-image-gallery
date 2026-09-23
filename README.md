@@ -9,13 +9,9 @@ User preferences are also preserved using browser storage.
 
 ## 🌐 Live Demo
 
-🔗 [View VynixVault Live](YOUR_NETLIFY_LINK_HERE)
+🔗 https://vynixvault-codealpha.netlify.app/
 
-## 📸 Preview
-
-![VynixVault Preview](YOUR_SCREENSHOT_LINK_HERE)
-
-## ✨ Features
+ ## ✨ Features
 
 - 📁 Album-based image organization
 - 🖼️ Responsive image gallery
