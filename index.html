@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vynix Vault - Aesthetic Visual Archive</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Animated Logo Splash Screen -->
+  <div id="splashScreen" class="splash-screen">
+    <div class="splash-content">
+      <div class="splash-logo"><i class="fa-solid fa-sparkles"></i></div>
+      <h1 class="splash-title">Vynix<span>Vault</span></h1>
+      <p class="splash-subtitle">Aesthetic Gallery Archive</p>
+      <div class="loader-bar"><div class="loader-progress"></div></div>
+    </div>
+  </div>
+
+  <div class="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-icon"><i class="fa-solid fa-sparkles"></i></div>
+        <h2>Vynix<span>Vault</span></h2>
+      </div>
+
+      <div class="sidebar-menu">
+        <p class="menu-label">NAVIGATE</p>
+        <ul class="folder-list">
+          <li class="folder-item active" data-view="folders">
+            <i class="fa-solid fa-folder-closed"></i>
+            <span>All Albums</span>
+            <span class="count">4</span>
+          </li>
+          <li class="folder-item" data-view="all-photos">
+            <i class="fa-solid fa-border-all"></i>
+            <span>All Photos</span>
+            <span class="count">12</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="sidebar-footer">
+        <div class="user-profile">
+          <div class="avatar"><i class="fa-solid fa-star"></i></div>
+          <div class="user-info">
+            <h4>Mehak's Vault</h4>
+            <p>Curator Edition</p>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <header class="top-nav">
+        <div class="nav-left">
+          <button id="backToFoldersBtn" class="back-btn" style="display: none;">
+            <i class="fa-solid fa-arrow-left"></i> Albums
+          </button>
+          <h2 id="currentViewTitle" class="view-title">Albums & Folders</h2>
+        </div>
+        
+        <div class="search-wrapper">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" id="searchInput" placeholder="Search anime, soft pink, cyber, aesthetic...">
+        </div>
+      </header>
+
+      <section class="gallery-wrapper">
+        <!-- Folders View Grid -->
+        <div class="folders-grid" id="foldersGrid">
+          <div class="album-card" data-category="anime">
+            <div class="album-cover">
+              <img src="https://images.unsplash.com/photo-1578632767115-351597cf2477?w=800&auto=format&fit=crop" alt="Anime Folder">
+              <span class="album-badge">4 Items</span>
+            </div>
+            <div class="album-info">
+              <h3>Anime & Art</h3>
+              <p>Soft aesthetics & anime visuals</p>
+            </div>
+          </div>
+
+          <div class="album-card" data-category="cute">
+            <div class="album-cover">
+              <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=800&auto=format&fit=crop" alt="Cute Folder">
+              <span class="album-badge">3 Items</span>
+            </div>
+            <div class="album-info">
+              <h3>Cute & Soft</h3>
+              <p>Pastel sweets, kittens & bloom</p>
+            </div>
+          </div>
+
+          <div class="album-card" data-category="cyber">
+            <div class="album-cover">
+              <img src="https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&auto=format&fit=crop" alt="Cyber Folder">
+              <span class="album-badge">3 Items</span>
+            </div>
+            <div class="album-info">
+              <h3>Cyber & Neon</h3>
+              <p>Futuristic tech & matrix glow</p>
+            </div>
+          </div>
+
+          <div class="album-card" data-category="cozy">
+            <div class="album-cover">
+              <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=800&auto=format&fit=crop" alt="Cozy Folder">
+              <span class="album-badge">2 Items</span>
+            </div>
+            <div class="album-info">
+              <h3>Cozy Vibe</h3>
+              <p>Warm lights, coffee & rooms</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Images Grid (Initially Hidden until folder or All Photos selected) -->
+        <div class="masonry-grid" id="galleryGrid" style="display: none;">
+
+          <div class="card tall" data-category="anime" data-title="Soft Pink Anime Girl Rainy Window Aesthetic">
+            <img src="https://images.unsplash.com/photo-1578632767115-351597cf2477?w=800&auto=format&fit=crop" alt="Anime Rain Aesthetic">
+            <div class="card-overlay">
+              <span class="tag anime">Anime Art</span>
+              <h3>Rainy Tokyo Dream</h3>
+              <button class="like-btn"><i class="fa-regular fa-heart"></i></button>
+            </div>
+          </div>
+
+          <div class="card short" data-category="cute" data-title="Cute Strawberry Milkshake Pastel Pink">
+            <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=800&auto=format&fit=crop" alt="Strawberry Bliss">
+            <div class="card-overlay">
+              <span class="tag cute">Pastel Cute</span>
+              <h3>Strawberry Bliss</h3>
+              <button class="like-btn"><i class="fa-regular fa-heart"></i></button>
+            </div>
+          </div>
+
+          <div class="card" data-category="cyber" data-title="Neon Cyberpunk Alley Glowing Lights">
+            <img src="https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&auto=format&fit=crop" alt="Cyber Arcade">
+            <div class="card-overlay">
+              <span class="tag cyber">Cyber Vibe</span>
+              <h3>Neon Arcade Core</h3>
+              <button class="like-btn"><i class="fa-regular fa-heart"></i></button>
+            </div>
+          </div>
+
+          <div class="card tall" data-category="anime" data-title="Aesthetic Boy Hoodie Sunset Sky Anime Vibe">
+            <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?w=800&auto=format&fit=crop" alt="Dreamy Sky Boy">
+            <div class="card-overlay">
+              <span class="tag anime">Aesthetic Boy</span>
+              <h3>Twilight Skyline</h3>
+              <button class="like-btn"><i class="fa-regular fa-heart"></i></button>
+            </div>
+          </div>
+
+          <div class="card short" data-category="cute" data-title="Soft Fluffy Kitten Pink Blanket">
+            <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=800&auto=format&fit=crop" alt="Fluffy Kitten">
+            <div class="card-overlay">
+              <span class="tag cute">Cute Kitty</span>
+              <h3>Soft Paws & Love</h3>
+              <button class="like-btn"><i class="fa-regular fa-heart"></i></button>
+            </div>
+          </div>
+
+          <div class="card" data-category="cozy" data-title="Cozy Coffee Warm Fairy Lights Books">
+            <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=800&auto=format&fit=crop" alt="Cozy Coffee">
+            <div class="card-overlay">
+              <span class="tag cozy">Cozy Corner</span>
+              <h3>Warm Books & Coffee</h3>
+              <button class="like-btn"><i class="fa-regular fa-heart"></i></button>
+            </div>
+          </div>
+
+          <div class="card tall" data-category="cyber" data-title="Glowing Matrix Cyber Code Stream">
+            <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&auto=format&fit=crop" alt="Matrix Stream">
+            <div class="card-overlay">
+              <span class="tag cyber">Cyber Tech</span>
+              <h3>Encrypted Matrix</h3>
+              <button class="like-btn"><i class="fa-regular fa-heart"></i></button>
+            </div>
+          </div>
+
+          <div class="card short" data-category="anime" data-title="Dreamy Sunset Cotton Candy Sky">
+            <img src="https://images.unsplash.com/photo-1509114397022-ed747cca3f65?w=800&auto=format&fit=crop" alt="Dreamy Sky">
+            <div class="card-overlay">
+              <span class="tag anime">Dreamy Sky</span>
+              <h3>Cotton Candy Cloud</h3>
+              <button class="like-btn"><i class="fa-regular fa-heart"></i></button>
+            </div>
+          </div>
+
+          <div class="card" data-category="cute" data-title="Pastel Tulips Spring Glow">
+            <img src="https://images.unsplash.com/photo-1520763185298-1b434c919102?w=800&auto=format&fit=crop" alt="Pastel Flowers">
+            <div class="card-overlay">
+              <span class="tag cute">Flowers</span>
+              <h3>Pastel Bloom</h3>
+              <button class="like-btn"><i class="fa-regular fa-heart"></i></button>
+            </div>
+          </div>
+
+          <div class="card tall" data-category="cozy" data-title="Aesthetic Room Decor Lights Flowers">
+            <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?w=800&auto=format&fit=crop" alt="Pastel Decor">
+            <div class="card-overlay">
+              <span class="tag cozy">Cozy Vibe</span>
+              <h3>Pastel Haven</h3>
+              <button class="like-btn"><i class="fa-regular fa-heart"></i></button>
+            </div>
+          </div>
+
+          <div class="card" data-category="cyber" data-title="Abstract Glowing AI Cyber Visual">
+            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&auto=format&fit=crop" alt="AI Core">
+            <div class="card-overlay">
+              <span class="tag cyber">AI Art</span>
+              <h3>Neural Glowing Core</h3>
+              <button class="like-btn"><i class="fa-regular fa-heart"></i></button>
+            </div>
+          </div>
+
+          <div class="card short" data-category="anime" data-title="Cherry Blossom Kyoto Pink Alley">
+            <img src="https://images.unsplash.com/photo-1522383225653-ed111181a951?w=800&auto=format&fit=crop" alt="Cherry Blossoms">
+            <div class="card-overlay">
+              <span class="tag anime">Sakura</span>
+              <h3>Kyoto Spring Trail</h3>
+              <button class="like-btn"><i class="fa-regular fa-heart"></i></button>
+            </div>
+          </div>
+
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Modal Preview -->
+  <div class="modal" id="imageModal">
+    <div class="modal-card">
+      <span class="close-btn" id="closeModal">&times;</span>
+      <img id="modalImg" src="" alt="Aesthetic Preview">
+      <div class="modal-details">
+        <h3 id="modalTitle">Image Title</h3>
+        <a id="modalDownload" href="#" download class="btn-download"><i class="fa-solid fa-download"></i> Download HD Wallpaper</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
